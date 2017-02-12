@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "webpack-dev-server --content-base docs/ src/index.js",
-    "build": "webpack -p src/index.js docs/bundle.js"
+    "start": "webpack-dev-server src/index.js",
+    "build": "webpack -p src/index.js build/bundle.js"
   },
   "dependencies": {
     "webpack": "^2.2.1",
