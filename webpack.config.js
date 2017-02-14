@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
   entry: './main.js',
   output: {
-    path: __dirname + '/build',
+    path: path.join(__dirname, '/build'),
     publicPath: '/build/',
     filename: 'bundle.js'
   },
@@ -20,4 +22,4 @@ module.exports = {
       }
     ]
   }
-}
+};
