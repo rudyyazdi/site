@@ -1,3 +1,4 @@
 import React from 'react';
+import Board from './Board';
 
-export default () => <h1>Rudys site</h1>;
+export default () => <Board />;
