@@ -2,11 +2,13 @@ import React from 'react';
 import Card from './Card';
 
 const data = { rows: 6, cols: 6 };
-const arrayFactory = (length, obj) => Array.from({ length }, () => obj);
+const arrayFactory =
+  (length, obj) =>
+  [...Array(length).keys()].map(i => React.cloneElement(obj, { key: i.toString() }));
 
 const Col = () => (
   <td>
-    <Card />
+    <Card id={13} />
   </td>
 );
 const cols = arrayFactory(data.cols, <Col />);
