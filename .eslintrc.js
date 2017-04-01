@@ -7,7 +7,9 @@ module.exports = {
   ],
   "rules": {
     "comma-dangle": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "arrow-parens": ["error", "always"],
+    "arrow-body-style": ["error", "as-needed"]
   },
   "env": {
     "browser": true,
