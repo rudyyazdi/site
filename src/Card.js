@@ -1,3 +1,7 @@
 import React from 'react';
 
-export default () => <h4>card</h4>;
+export default () => (
+  <div>
+    card
+  </div>
+);

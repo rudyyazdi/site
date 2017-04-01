@@ -22,7 +22,9 @@ class Board extends React.Component {
   render() {
     return (
       <table>
-        {rows}
+        <tbody>
+          {rows}
+        </tbody>
       </table>
     );
   }
