@@ -10,7 +10,7 @@ const colRowToID = (col, row, totalcols) => col + (row * totalcols);
 
 const Col = ({ i, rowNum }) => (
   <td>
-    <Card id={colRowToID(i, rowNum, data.cols)} />
+    <Card id={colRowToID(i, rowNum, data.cols)} isVisible />
   </td>
 );
 Col.propTypes = {

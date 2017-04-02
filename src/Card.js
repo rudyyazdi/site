@@ -1,26 +1,22 @@
 import React, { PropTypes } from 'react';
 
-const defaultStyle = {
-  width: 100,
-  height: 75,
-  fontFamily: 'monospace',
-  fontSize: 40,
-  textAlign: 'center',
-  paddingTop: 25,
-  border: '1px doted',
-  cursor: 'pointer'
-};
-
 const Card = ({ id, isVisible }) => {
-  const style = Object.assign(defaultStyle);
-  if (isVisible) {
-    style.backgroundColor = 'white';
-  } else {
-    style.backgroundColor = 'black';
-  }
+  const outerStyle = {
+    width: 100,
+    height: 100,
+    border: '1px solid',
+    cursor: 'pointer',
+    backgroundImage: `url(https://api.adorable.io/avatars/100/rw${id}.png)`
+  };
+  const innerStyle = {
+    width: '100%',
+    height: '100%',
+    backgroundColor: isVisible ? 'transparent' : 'black'
+  };
+
   return (
-    <div style={style}>
-      {id}
+    <div style={outerStyle}>
+      <div style={innerStyle} />
     </div>
   );
 };
