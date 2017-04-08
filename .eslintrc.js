@@ -6,10 +6,12 @@ module.exports = {
       "import"
   ],
   "rules": {
-    "comma-dangle": "off",
+    "comma-dangle": ["error", "always"],
     "react/jsx-filename-extension": "off",
     "arrow-parens": ["error", "always"],
-    "arrow-body-style": ["error", "as-needed"]
+    "arrow-body-style": ["error", "as-needed"],
+    "no-underscore-dangle": "off",
+    "no-multi-spaces": ["error", { exceptions: { "VariableDeclarator": true } }],
   },
   "env": {
     "browser": true,
