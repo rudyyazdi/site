@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import { connect, } from 'react-redux';
 
-class Board extends React.Component {
+import Card from './Card';
+import arrayFactory from '../util/array-factory';
+
+class _Board extends React.Component {
   static colRowToID(col, row, totalcols) {
     return col + (row * totalcols);
   }
 
-  static arrayFactory(length, fun) {
-    return [...Array(length).keys()].map(fun);
-  }
-
   cols(rowNum) {
-    return Board.arrayFactory(this.props.cols, (i) => (
+    const { cards, } = this.props;
+    const id = (i) => _Board.colRowToID(i, rowNum, this.props.cols);
+    return arrayFactory(this.props.cols, (i) => (
       <td key={i}>
-        <Card id={Board.colRowToID(i, rowNum, this.props.cols)} isVisible />
+        <Card data={cards && cards[id(i)]} isVisible />
       </td>
     ));
   }
 
   rows() {
-    return Board.arrayFactory(this.props.rows, (i) => (
+    return arrayFactory(this.props.rows, (i) => (
       <tr key={i}>
         {this.cols(i)}
       </tr>
@@ -38,9 +39,16 @@ class Board extends React.Component {
   }
 }
 
-Board.propTypes = {
+_Board.propTypes = {
   cols: PropTypes.number.isRequired,
-  rows: PropTypes.number.isRequired
+  rows: PropTypes.number.isRequired,
+  cards: PropTypes.array.isRequired,
 };
+
+const mapStateToProps = ({ cards, }) => ({
+  cards,
+});
+
+const Board = connect(mapStateToProps)(_Board);
 
 export default Board;
