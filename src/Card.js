@@ -8,7 +8,7 @@ const _Card = ({ isVisible, data, }) => {
     height: 100,
     border: '1px solid',
     cursor: 'pointer',
-    backgroundImage: data ? `url(https://api.adorable.io/avatars/100/rw${data.id}.png)` : null,
+    backgroundImage: data ? `url(https://api.adorable.io/avatars/100/rw${data.pairId}.png)` : null,
   };
   const innerStyle = {
     width: '100%',
