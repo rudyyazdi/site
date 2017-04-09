@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, } from 'react-redux';
 
-const _Card = ({ isVisible, data, }) => {
+import { cardFlip, } from './actions';
+
+
+const _Card = ({ isVisible, id, pairId, onClick, }) => {
   const outerStyle = {
     width: 100,
     height: 100,
     border: '1px solid',
     cursor: 'pointer',
-    backgroundImage: data ? `url(https://api.adorable.io/avatars/100/rw${data.pairId}.png)` : null,
+    backgroundImage: `url(https://api.adorable.io/avatars/100/rw${pairId}.png)`,
   };
   const innerStyle = {
     width: '100%',
@@ -17,24 +20,25 @@ const _Card = ({ isVisible, data, }) => {
   };
 
   return (
-    <div style={outerStyle}>
+    <div style={outerStyle} onClick={() => onClick(id)}>
       <div style={innerStyle} />
     </div>
   );
 };
 
 _Card.propTypes = {
-  data: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  pairId: PropTypes.number.isRequired,
   isVisible: PropTypes.bool,
 };
 _Card.defaultProps = {
   isVisible: false,
 };
 
-const mapStateToProps = (state) => ({
-  state,
+const mapDispatchToProps = (dispatch) => ({
+  onClick: (id) => dispatch(cardFlip(id)),
 });
 
-const Card = connect(mapStateToProps)(_Card);
+const Card = connect(null, mapDispatchToProps)(_Card);
 
 export default Card;

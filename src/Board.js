@@ -15,7 +15,7 @@ class _Board extends React.Component {
     const id = (i) => _Board.colRowToID(i, rowNum, this.props.cols);
     return arrayFactory(this.props.cols, (i) => (
       <td key={i}>
-        <Card data={cards && cards[id(i)]} isVisible />
+        {React.createElement(Card, cards[id(i)])}
       </td>
     ));
   }

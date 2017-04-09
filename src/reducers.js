@@ -1,6 +1,6 @@
 import arrayFactory from '../util/array-factory';
 import arrayShuffle from '../util/array-shuffle';
-import { BOARD_SHUFFLE, } from './actions';
+import { BOARD_SHUFFLE, CARD_FLIP, } from './actions';
 
 const _cardsInitialState = (totalCards) => {
   let pairIds = arrayFactory(totalCards / 2, (i) => i);
@@ -24,6 +24,20 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         cards: _cardsInitialState(state.totalCards),
+      };
+    case CARD_FLIP:
+      const cards = state.cards.map((card) => {
+        if (card.id === action.id) {
+          return {
+            ...card,
+            isVisible: !card.isVisible,
+          };
+        }
+        return card;
+      });
+      return {
+        ...state,
+        cards,
       };
     default:
       return state;
