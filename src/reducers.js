@@ -13,26 +13,24 @@ const _cardsInitialState = (totalCards) => {
   }));
 };
 
-const _hideAll = (cards) =>
-  cards.map((card) => ({ ...card, isFlipped: false, }));
+const _getFlipped = (cards) =>
+  cards.filter((card) => card.isFlipped);
 
-const _getFlipped = (cards) => cards.filter((card) => card.isFlipped);
-
-const _flippedLength = (cards) => _getFlipped(cards).length;
-
-const _flippedLimit = (cards) => ((_flippedLength(cards) > 1) ? _hideAll(cards) : cards);
+const _flippedLimit = (cards) =>
+  (c) => ((_getFlipped(cards).length > 1) ? { ...c, isFlipped: false, } : c);
 
 const _markGuessed = (cards) => {
-  const flippedPairIds = _getFlipped(cards).map((card) => card.pairId);
-  return (flippedPairIds.length === 2 && flippedPairIds[0] === flippedPairIds[1])
-    ? cards.map((card) => ((card.isFlipped) ? { ...card, isGuessed: true, } : card))
-    : cards;
+  const flippedPairIds = _getFlipped(cards).map((c) => c.pairId);
+  const isBingo = flippedPairIds.length === 2 && flippedPairIds[0] === flippedPairIds[1];
+
+  return (c) => (isBingo && c.isFlipped ? { ...c, isGuessed: true, } : c);
 };
 
-const _flippedCards = (cards, id) => {
-  return _flippedLimit(_markGuessed(cards))
-    .map((card) => ((card.id === id && !card.isGuessed) ? { ...card, isFlipped: true, } : card));
-};
+const _markFlipped = (id) =>
+  (c) => ((c.id === id && !c.isGuessed) ? { ...c, isFlipped: true, } : c);
+
+const _flippedCards = (cards, id) =>
+  cards.map(_markGuessed(cards)).map(_flippedLimit(cards)).map(_markFlipped(id));
 
 const initialState = {
   totalCards: 36,
