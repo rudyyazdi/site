@@ -5,7 +5,7 @@ import { connect, } from 'react-redux';
 import { cardFlip, } from './actions';
 
 
-const _Card = ({ isVisible, id, pairId, onClick, }) => {
+const _Card = ({ isFlipped, id, pairId, onClick, }) => {
   const outerStyle = {
     width: 100,
     height: 100,
@@ -16,7 +16,7 @@ const _Card = ({ isVisible, id, pairId, onClick, }) => {
   const innerStyle = {
     width: '100%',
     height: '100%',
-    backgroundColor: isVisible ? 'transparent' : 'black',
+    backgroundColor: isFlipped ? 'transparent' : 'black',
   };
 
   return (
@@ -29,10 +29,10 @@ const _Card = ({ isVisible, id, pairId, onClick, }) => {
 _Card.propTypes = {
   id: PropTypes.number.isRequired,
   pairId: PropTypes.number.isRequired,
-  isVisible: PropTypes.bool,
+  isFlipped: PropTypes.bool,
 };
 _Card.defaultProps = {
-  isVisible: false,
+  isFlipped: false,
 };
 
 const mapDispatchToProps = (dispatch) => ({

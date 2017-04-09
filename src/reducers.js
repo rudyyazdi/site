@@ -9,18 +9,18 @@ const _cardsInitialState = (totalCards) => {
   return arrayFactory(totalCards, (id) => ({
     id,
     pairId: pairIds[id],
-    isVisible: false,
+    isFlipped: false,
   }));
 };
 
 const _hideAll = (cards) =>
-  cards.map((card) => ({ ...card, isVisible: false, }));
+  cards.map((card) => ({ ...card, isFlipped: false, }));
 
-const _visibleLength = (cards) => (cards.filter((card) => card.isVisible).length);
+const _flippedLength = (cards) => (cards.filter((card) => card.isFlipped).length);
 
 const _flippedCards = (cards, id) => {
-  return ((_visibleLength(cards) > 1) ? _hideAll(cards) : cards)
-    .map((card) => ((card.id === id) ? { ...card, isVisible: !card.isVisible, } : card));
+  return ((_flippedLength(cards) > 1) ? _hideAll(cards) : cards)
+    .map((card) => ((card.id === id) ? { ...card, isFlipped: !card.isFlipped, } : card));
 };
 
 const initialState = {
