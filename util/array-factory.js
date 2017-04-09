@@ -1,3 +1,3 @@
-export default (length, fun) => [
+export default (length) => [
   ...Array(length).keys(),
-].map(fun);
+];

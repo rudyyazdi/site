@@ -13,7 +13,7 @@ class _Board extends React.Component {
   cols(rowNum) {
     const { cards, } = this.props;
     const id = (i) => _Board.colRowToID(i, rowNum, this.props.cols);
-    return arrayFactory(this.props.cols, (i) => (
+    return arrayFactory(this.props.cols).map((i) => (
       <td key={i}>
         {React.createElement(Card, cards[id(i)])}
       </td>
@@ -21,7 +21,7 @@ class _Board extends React.Component {
   }
 
   rows() {
-    return arrayFactory(this.props.rows, (i) => (
+    return arrayFactory(this.props.cols).map((i) => (
       <tr key={i}>
         {this.cols(i)}
       </tr>

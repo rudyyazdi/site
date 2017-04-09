@@ -1,15 +1,16 @@
+import shuffle from 'lodash/shuffle';
+import flatMap from 'lodash/flatMap';
+
 import arrayFactory from '../util/array-factory';
-import arrayShuffle from '../util/array-shuffle';
 import { BOARD_SHUFFLE, CARD_FLIP, } from './actions';
 
 const _cardsInitialState = (totalCards) => {
-  let pairIds = arrayFactory(totalCards / 2, (i) => i);
-  pairIds = pairIds.concat(pairIds);
-  pairIds = arrayShuffle(pairIds);
-  return arrayFactory(totalCards, (id) => ({
+  const pairIds = shuffle(flatMap(arrayFactory(totalCards / 2), (i) => [i, i, ]));
+  return arrayFactory(totalCards).map((id) => ({
     id,
     pairId: pairIds[id],
     isFlipped: false,
+    isGuessed: false,
   }));
 };
 
