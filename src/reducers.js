@@ -16,11 +16,22 @@ const _cardsInitialState = (totalCards) => {
 const _hideAll = (cards) =>
   cards.map((card) => ({ ...card, isFlipped: false, }));
 
-const _flippedLength = (cards) => (cards.filter((card) => card.isFlipped).length);
+const _getFlipped = (cards) => cards.filter((card) => card.isFlipped);
+
+const _flippedLength = (cards) => _getFlipped(cards).length;
+
+const _flippedLimit = (cards) => ((_flippedLength(cards) > 1) ? _hideAll(cards) : cards);
+
+const _markGuessed = (cards) => {
+  const flippedPairIds = _getFlipped(cards).map((card) => card.pairId);
+  return (flippedPairIds.length === 2 && flippedPairIds[0] === flippedPairIds[1])
+    ? cards.map((card) => ((card.isFlipped) ? { ...card, isGuessed: true, } : card))
+    : cards;
+};
 
 const _flippedCards = (cards, id) => {
-  return ((_flippedLength(cards) > 1) ? _hideAll(cards) : cards)
-    .map((card) => ((card.id === id) ? { ...card, isFlipped: !card.isFlipped, } : card));
+  return _flippedLimit(_markGuessed(cards))
+    .map((card) => ((card.id === id && !card.isGuessed) ? { ...card, isFlipped: true, } : card));
 };
 
 const initialState = {
