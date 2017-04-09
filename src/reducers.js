@@ -13,6 +13,16 @@ const _cardsInitialState = (totalCards) => {
   }));
 };
 
+const _hideAll = (cards) =>
+  cards.map((card) => ({ ...card, isVisible: false, }));
+
+const _visibleLength = (cards) => (cards.filter((card) => card.isVisible).length);
+
+const _flippedCards = (cards, id) => {
+  return ((_visibleLength(cards) > 1) ? _hideAll(cards) : cards)
+    .map((card) => ((card.id === id) ? { ...card, isVisible: !card.isVisible, } : card));
+};
+
 const initialState = {
   totalCards: 36,
   cards: _cardsInitialState(36),
@@ -26,18 +36,9 @@ const appReducer = (state = initialState, action) => {
         cards: _cardsInitialState(state.totalCards),
       };
     case CARD_FLIP:
-      const cards = state.cards.map((card) => {
-        if (card.id === action.id) {
-          return {
-            ...card,
-            isVisible: !card.isVisible,
-          };
-        }
-        return card;
-      });
       return {
         ...state,
-        cards,
+        cards: _flippedCards(state.cards, action.id),
       };
     default:
       return state;
