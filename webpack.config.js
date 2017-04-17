@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
   entry: './main.js',
   output: {
-    path: path.join(__dirname, '/build'),
-    publicPath: '/build/',
+    path: path.join(__dirname, '/rudyyazdi.github.io'),
+    publicPath: '/rudyyazdi.github.io/',
     filename: 'bundle.js',
   },
   devServer: {
