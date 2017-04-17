@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/rudyyazdi.github.io'),
     // publicPath: '/rudyyazdi.github.io/',
-    filename: 'bundle.js',
+    filename: 'bundle.[chunkhash].js',
   },
   devServer: {
     inline: true,
