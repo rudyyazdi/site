@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -p",
+    "build": "./scripts/build",
     "lint": "eslint ."
   },
   "dependencies": {

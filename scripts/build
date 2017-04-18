@@ -1,0 +1,13 @@
+#!/bin/bash
+TODAY=$(date -u)
+GIT="git --git-dir=rudyyazdi.github.io/.git"
+
+# prepare build files
+webpack -p
+
+# commit the changes
+$GIT add -A
+$GIT commit -m "build $TODAY"
+
+# push
+$GIT push
