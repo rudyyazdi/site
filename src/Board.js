@@ -21,7 +21,7 @@ class _Board extends React.Component {
   }
 
   rows() {
-    return arrayFactory(this.props.cols).map((i) => (
+    return arrayFactory(this.props.rows).map((i) => (
       <tr key={i}>
         {this.cols(i)}
       </tr>
@@ -42,7 +42,7 @@ class _Board extends React.Component {
 _Board.propTypes = {
   cols: PropTypes.number.isRequired,
   rows: PropTypes.number.isRequired,
-  cards: PropTypes.array.isRequired,
+  cards: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = ({ cards, }) => ({
