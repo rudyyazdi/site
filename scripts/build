@@ -2,6 +2,9 @@
 TODAY=$(date -u)
 GIT="git --git-dir=rudyyazdi.github.io/.git"
 
+# clear the build folder
+rm ../rudyyazdi.github.io/**
+
 # prepare build files
 webpack -p
 
