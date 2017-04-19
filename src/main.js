@@ -3,8 +3,8 @@ import { render, } from 'react-dom';
 import { createStore, } from 'redux';
 import { Provider, } from 'react-redux';
 
-import appReducer from './src/reducers';
-import App from './src/App';
+import appReducer from 'flipper-app/reducers';
+import FlipperApp from 'flipper-app/FlipperApp';
 
 const store = createStore(
   appReducer,
@@ -13,7 +13,7 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <App />
+    <FlipperApp />
   </Provider>,
   document.getElementById('app')
 );

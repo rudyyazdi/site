@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './main.js',
+  entry: './src/main.js',
   output: {
     path: path.join(__dirname, '/rudyyazdi.github.io'),
     // publicPath: '/rudyyazdi.github.io/',
@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.esj',
+      template: 'templates/index.esj',
     }),
   ],
   module: {
@@ -31,5 +31,12 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    modules: [
+      path.resolve(__dirname),
+      path.resolve(__dirname, "src"),
+      "node_modules",
+    ]
   },
 };

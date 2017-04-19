@@ -1,7 +1,7 @@
 import shuffle from 'lodash/shuffle';
 import flatMap from 'lodash/flatMap';
 
-import arrayFactory from '../util/array-factory';
+import arrayFactory from 'util/array-factory';
 import { BOARD_SHUFFLE, CARD_FLIP, } from './actions';
 
 const _cardsInitialState = (totalCards) => {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect, } from 'react-redux';
 
 import Card from './Card';
-import arrayFactory from '../util/array-factory';
+import arrayFactory from 'util/array-factory';
 
 class _Board extends React.Component {
   static colRowToID(col, row, totalcols) {
