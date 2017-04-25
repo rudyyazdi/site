@@ -3,10 +3,17 @@ TODAY=$(date -u)
 GIT="git --git-dir=rudyyazdi.github.io/.git"
 
 # clear the build folder
-rm ../rudyyazdi.github.io/**
+rm ./rudyyazdi.github.io/**
 
 # prepare build files
 webpack -p
+
+# exit is there is no change
+if [[ -z $($GIT status -s) ]]
+  then
+    echo 'no new change!'
+    exit 0
+fi
 
 # commit the changes
 $GIT add -A
