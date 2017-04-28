@@ -6,15 +6,15 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/rudyyazdi.github.io'),
     // publicPath: '/rudyyazdi.github.io/',
-    filename: 'bundle.[chunkhash].js',
+    filename: 'bundle.[chunkhash].js'
   },
   devServer: {
-    inline: true,
+    inline: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'templates/index.esj',
-    }),
+      template: 'templates/index.esj'
+    })
   ],
   module: {
     loaders: [
@@ -26,17 +26,17 @@ module.exports = {
           presets: [
             'es2015',
             'react',
-            'stage-2',
-          ],
-        },
-      },
-    ],
+            'stage-2'
+          ]
+        }
+      }
+    ]
   },
   resolve: {
     modules: [
       path.resolve(__dirname),
       path.resolve(__dirname, 'src'),
-      'node_modules',
-    ],
-  },
+      'node_modules'
+    ]
+  }
 };

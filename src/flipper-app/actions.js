@@ -7,14 +7,14 @@ export const CARD_FLIP     = 'CARD:FLIP';
 // action creators:
 
 export const boardShuffle = () => ({
-  type: BOARD_SHUFFLE,
+  type: BOARD_SHUFFLE
 });
 export const boardSInit = (totalCards) => ({
   type: BOARD_INIT,
-  totalCards,
+  totalCards
 });
 
 export const cardFlip = (id) => ({
   type: CARD_FLIP,
-  id,
+  id
 });

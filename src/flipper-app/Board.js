@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 
-import Card from './Card';
 import arrayFactory from 'util/array-factory';
+import Card from './Card';
 
 class _Board extends React.Component {
   static colRowToID(col, row, totalcols) {
@@ -11,7 +11,7 @@ class _Board extends React.Component {
   }
 
   cols(rowNum) {
-    const { cards, } = this.props;
+    const { cards } = this.props;
     const id = (i) => _Board.colRowToID(i, rowNum, this.props.cols);
     return arrayFactory(this.props.cols).map((i) => (
       <td key={i}>
@@ -42,11 +42,11 @@ class _Board extends React.Component {
 _Board.propTypes = {
   cols: PropTypes.number.isRequired,
   rows: PropTypes.number.isRequired,
-  cards: PropTypes.arrayOf(PropTypes.object).isRequired,
+  cards: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-const mapStateToProps = ({ cards, }) => ({
-  cards,
+const mapStateToProps = ({ cards }) => ({
+  cards
 });
 
 const Board = connect(mapStateToProps)(_Board);

@@ -1,3 +1,3 @@
 export default (length) => [
-  ...Array(length).keys(),
+  ...Array(length).keys()
 ];
