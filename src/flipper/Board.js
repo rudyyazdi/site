@@ -45,8 +45,8 @@ _Board.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-const mapStateToProps = ({ cards }) => ({
-  cards
+const mapStateToProps = (state) => ({
+  cards: state.flipper.cards
 });
 
 const Board = connect(mapStateToProps)(_Board);

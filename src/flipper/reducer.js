@@ -38,7 +38,9 @@ const initialState = {
   cards: _cardsInitialState(36)
 };
 
-const appReducer = (state = initialState, action) => {
+// flipper reducer:
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case BOARD_SHUFFLE:
       return {
@@ -54,5 +56,3 @@ const appReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default appReducer;
