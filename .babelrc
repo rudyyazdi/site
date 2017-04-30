@@ -1,12 +1,22 @@
 {
   "presets": [
     "react",
-    "stage-2",
+    [
+      "env", {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
+      }
+    ],
     [
       "es2015",
       {
         "modules": false
       }
     ]
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-object-rest-spread"
   ]
 }
