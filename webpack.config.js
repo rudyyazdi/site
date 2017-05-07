@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
+const isProduction = process.NODE_ENV === 'production';
+
 module.exports = {
   entry: [
     'babel-polyfill',
@@ -11,7 +13,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/rudyyazdi.github.io'),
     // publicPath: '/rudyyazdi.github.io/',
-    filename: 'bundle.js'
+    filename: isProduction ? 'bundle.js' : 'bundle.[chunkhash].js'
   },
   plugins: [
     new HtmlWebpackPlugin({
