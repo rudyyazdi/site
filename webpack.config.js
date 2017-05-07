@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = {
   entry: [
@@ -17,6 +18,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'templates/index.esj'
+    }),
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/
     })
   ],
   module: {
