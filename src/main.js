@@ -4,10 +4,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import Flipper from 'flipper/Flipper';
-import appReducer from './appReducer';
+import reducer from 'root/reducer';
 
 const store = createStore(
-  appReducer,
+  reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
