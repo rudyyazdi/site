@@ -5,15 +5,13 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 module.exports = {
   entry: [
     'babel-polyfill',
+    'react-hot-loader/patch',
     './src/main.js'
   ],
   output: {
     path: path.join(__dirname, '/rudyyazdi.github.io'),
     // publicPath: '/rudyyazdi.github.io/',
-    filename: 'bundle.[chunkhash].js'
-  },
-  devServer: {
-    inline: true
+    filename: 'bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({

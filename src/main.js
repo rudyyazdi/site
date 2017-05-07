@@ -1,19 +1,20 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-import Flipper from 'flipper/Flipper';
-import reducer from 'root/reducer';
+import App from 'root/App';
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app')
+  );
+};
 
-render(
-  <Provider store={store}>
-    <Flipper />
-  </Provider>,
-  document.getElementById('app')
-);
+render(App);
+
+if (module.hot) {
+  module.hot.accept('root/App', () => { render(App); });
+}

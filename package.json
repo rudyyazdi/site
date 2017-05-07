@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot --history-api-fallback",
     "build": "./scripts/build",
     "lint": "eslint ."
   },
@@ -28,6 +28,7 @@
     "prop-types": "^15.5.4",
     "react": "^15.5.4",
     "react-dom": "^15.4.2",
+    "react-hot-loader": "next",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
     "webpack": "^2.2.1",
