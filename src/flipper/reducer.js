@@ -2,7 +2,7 @@ import shuffle from 'lodash/shuffle';
 import flatMap from 'lodash/flatMap';
 
 import arrayFactory from 'util/array-factory';
-import { BOARD_SHUFFLE, CARD_FLIP } from './actions';
+import { FLIPPER_SHUFFLE, CARD_FLIP } from './actions';
 
 const _cardsInitialState = (totalCards) => {
   const pairIds = shuffle(flatMap(arrayFactory(totalCards / 2), (i) => [i, i]));
@@ -42,7 +42,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case BOARD_SHUFFLE:
+    case FLIPPER_SHUFFLE:
       return {
         ...state,
         cards: _cardsInitialState(state.totalCards)
