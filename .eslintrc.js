@@ -13,6 +13,7 @@ module.exports = {
     "arrow-parens": ["error", "always"],
     "arrow-body-style": ["error", "as-needed"],
     "no-underscore-dangle": "off",
+    "react/no-unused-prop-types": "error",
     "jsx-a11y/no-static-element-interactions": "off",
     "comma-dangle": ["error", "never"],
     "no-multi-spaces": ["error", { exceptions: { "VariableDeclarator": true } }],
