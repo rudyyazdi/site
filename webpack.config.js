@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-const isProduction = process.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: [
@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/rudyyazdi.github.io'),
     // publicPath: '/rudyyazdi.github.io/',
-    filename: isProduction ? 'bundle.js' : 'bundle.[chunkhash].js'
+    filename: isProduction ? 'bundle.[chunkhash].js' : 'bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({

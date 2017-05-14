@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { boardShuffle } from './actions';
+import { flipperShuffle } from './actions';
 
 const _Console = ({ onShuffleClick }) =>
   <div>
@@ -16,7 +16,7 @@ _Console.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onShuffleClick: () => dispatch(boardShuffle())
+  onShuffleClick: () => dispatch(flipperShuffle())
 });
 
 const Console = connect(null, mapDispatchToProps)(_Console);
