@@ -20,7 +20,8 @@ module.exports = {
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "settings": {
     "import/resolver": "webpack"

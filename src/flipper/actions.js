@@ -6,10 +6,10 @@ export const CARD_FLIP       = 'CARD::FLIP';
 
 // action creators:
 
-export const boardShuffle = () => ({
+export const flipperShuffle = () => ({
   type: FLIPPER_SHUFFLE
 });
-export const boardSInit = (totalCards) => ({
+export const flipperSInit = (totalCards) => ({
   type: FLIPPER_INIT,
   totalCards
 });
