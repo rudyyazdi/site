@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import arrayFactory from '../../util/array-factory';
+import arrayFactory from 'util/array-factory';
 import Card from './Card';
 
 class _Board extends React.Component {
