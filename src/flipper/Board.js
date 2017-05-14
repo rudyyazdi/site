@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import arrayFactory from 'util/array-factory';
+import arrayFactory from '../../util/array-factory';
 import Card from './Card';
 
 class _Board extends React.Component {
@@ -49,6 +49,5 @@ const mapStateToProps = (state) => ({
   cards: state.flipper.cards
 });
 
-const Board = connect(mapStateToProps)(_Board);
-
-export default Board;
+export { _Board };
+export default connect(mapStateToProps)(_Board);

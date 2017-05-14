@@ -19,6 +19,7 @@
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
     "circular-dependency-plugin": "^3.0.0",
+    "enzyme": "^2.8.2",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-import-resolver-webpack": "^0.8.1",
@@ -34,6 +35,7 @@
     "react-dom": "^15.4.2",
     "react-hot-loader": "next",
     "react-redux": "^5.0.3",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"

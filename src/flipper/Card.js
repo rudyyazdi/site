@@ -43,6 +43,5 @@ const mapDispatchToProps = (dispatch) => ({
   onClick: (id) => dispatch(cardFlip(id))
 });
 
-const Card = connect(null, mapDispatchToProps)(_Card);
-
-export default Card;
+export { _Card };
+export default connect(null, mapDispatchToProps)(_Card);
