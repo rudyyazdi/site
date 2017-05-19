@@ -9,7 +9,7 @@ describe('<Board />', () => {
   let props;
 
   beforeEach(() => {
-    wrapper = shallow(<Board />);
+    wrapper = shallow(<Board cols={1} rows={1} cards={[]} />);
     props = wrapper.unrendered.props;
   });
 
