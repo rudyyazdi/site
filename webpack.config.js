@@ -26,8 +26,13 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /test.js$/,
+        exclude: /node_modules/,
+        loader: 'mocha-loader'
+      },
+      {
         test: /\.(js|jsx)$/,
-        exclude: /(\/node_modules\/|test\.js|\.spec\.js$)/,
+        exclude: /node_modules/,
         loader: 'babel-loader'
       }
     ]
