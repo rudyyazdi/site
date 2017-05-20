@@ -8,20 +8,22 @@ import {
   cardFlip
 } from './actions';
 
-describe('flipperShuffle', () => {
-  it('dispatches the correct action', () => {
-    expect(flipperShuffle().type).to.equal(FLIPPER_SHUFFLE);
+describe('actions', () => {
+  describe('flipperShuffle', () => {
+    it('dispatches the correct action', () => {
+      expect(flipperShuffle().type).to.equal(FLIPPER_SHUFFLE);
+    });
   });
-});
 
-describe('flipperSInit', () => {
-  it('dispatches the correct action', () => {
-    expect(flipperSInit().type).to.equal(FLIPPER_INIT);
+  describe('flipperSInit', () => {
+    it('dispatches the correct action', () => {
+      expect(flipperSInit().type).to.equal(FLIPPER_INIT);
+    });
   });
-});
 
-describe('cardFlip', () => {
-  it('dispatches the correct action', () => {
-    expect(cardFlip().type).to.equal(CARD_FLIP);
+  describe('cardFlip', () => {
+    it('dispatches the correct action', () => {
+      expect(cardFlip().type).to.equal(CARD_FLIP);
+    });
   });
 });
