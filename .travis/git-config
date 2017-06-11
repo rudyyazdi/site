@@ -1,0 +1,4 @@
+host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/rudy-site-deploy
+  User git
