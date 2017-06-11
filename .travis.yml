@@ -9,7 +9,7 @@ env:
   - secure: CILZYK0V5rblgL+b4eTguvu+uxvME+FiU685LQrbqU8EPFCImLdA9TYmCe690LrRdC6/XUrigIB2BytRHMYlhDJia2voq1fWktiVkfPQF2AxgE2jvef3QWDRTjFV6SCneP4KacxyupxiN+QdwVjH0LUP89MLuUPVovxQqRZsnwLb80vc3xjejhOAltZUrbZYiohzJmPDzIAn8wHerErWX/P9BfCdTWtfH0r5pusrhUz9f3M8TEW5T1smtATA7hVSZFS8cP7MxCjChbpWxP4wzcW3Jn3G8ONJCIFPhob8jyu+4hvoHS0KvOcFm0fb/tHxBggsAd0hFsQWTSaxZmXQsU0ID2aMv2LUQ/jBIulsP0rQWaQhwhSvaLc5+R2blOb4ujLy0YRgmRrY/PGLRN07peNswhmiMH6DrpYGowwi//+2PoeuHIlTAkb+8njxfH5yKT3tV1S+kHUf0zv99et/N57BlmHbzt8PEaeErY1P8H0rJqK/QPkPCo7XZTuxQu8aHaNWu1BJuil5GhwQphT8CKncsUO8q7kTOvgo3BgOJKJp/lJZRChB0hV5R0VbnieKlXwh5hmNRktbLpLwkVOP7Xeg/JJJ3TmBC+ciHnQbitPsKECJen25f4tkiTFDEo0U2xSZqF2KVIzCEbUKHf3VTEfKJojaPEQeMdGOzdQJHkY=
 before_install:
 - openssl aes-256-cbc -K $encrypted_87d951632a63_key -iv $encrypted_87d951632a63_iv
-  -in .travis/rudy-site-deploy.enc -out rudy-site-deploy -d
+  -in .travis/rudy-site-deploy.enc -out ~/.ssh/rudy-site-deploy -d
 - git config --global user.email "$GH_USER_EMAIL"
 - git config --global user.name "$GH_USER_NAME"
 - git config --global user.name
