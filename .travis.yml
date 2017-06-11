@@ -4,4 +4,5 @@ node_js:
   7
 cache: yarn
 script: yarn test
+before_install: openssl aes-256-cbc -K $encrypted_87d951632a63_key -iv $encrypted_87d951632a63_iv -in .travis/rudy-site-deploy.enc -out rudy-site-deploy -d
 after_script: yarn build
