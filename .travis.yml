@@ -5,8 +5,8 @@ node_js:
 cache: yarn
 script: yarn test
 before_install:
-  -openssl aes-256-cbc -K $encrypted_87d951632a63_key -iv $encrypted_87d951632a63_iv -in .travis/rudy-site-deploy.enc -out rudy-site-deploy -d
-  -git config --global user.email "$GH_USER_EMAIL"
-  -git config --global user.name "$GH_USER_NAME"
+  openssl aes-256-cbc -K $encrypted_87d951632a63_key -iv $encrypted_87d951632a63_iv -in .travis/rudy-site-deploy.enc -out rudy-site-deploy -d && \
+  git config --global user.email "$GH_USER_EMAIL" && \
+  git config --global user.name "$GH_USER_NAME"
 after_script: yarn build
 secure: "VoVxKFO4m6xmhcCV4hnZgvJuNdEsfBC5ys0eGxilaC6INhNBrfMKGAWo4Nic41H/0vhiPdvvm4jl4PgTjh4hOa9YVRInndwG59cGixzuQx97Hw6CnPwBt7Ls9rev/ToiuUSHP2JG9/LodtuwROHMK4Dn6x4xGf9wWRO59YhpJPbMnz00qbS7kb+FoFwE/OUaCA6MovrmFbDSpBFqgCf2pJcVHNSjg+BNMlp+RDvvloh9ekYucivV/t9l2x+wxB7T15ttPM3dD7w+cVmPNNHsKzzjXsWhTT/CKjj/GZoD59AcjB7prAfhsR2+a0hJkV3eww5QzBVTMhkHqt9fu4ipiG1bnZMbznooa7UGE495KezxkkiQGD3BafDxOJ2t0JpeSIKqpaAfmRyTOi/Ntlhk6Ga/kwRA0sPejPFxRY5jY8yh0/WuKt9PoIzSDyoR+j5RIHf4c4IWqrBgNzmW/bB1keduT/g+1O5bOAjIHZPL/Qrslot6yGVDbAP9fbHrFM1jq/xQYejePsRZOxR2pX3w+bOE55N5rTMuOtU4pRdDuhA6HOLQBscDZkN1P8ganxVNlAnVcU1Uz2nFthy+ANCI0XiC/AUUg69RZKsGF0I/LbgpooPu7e5q97lXauQeu8yNor3jvq9FETeHb7si3t53+mQtqYvssN2DuG1b7G1Vk4k="
