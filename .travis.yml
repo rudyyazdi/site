@@ -1,5 +1,5 @@
 language: node_js
 node_js:
-  -6.9.1
+  -6.1.x
 cache: yarn
 script: yarn test
