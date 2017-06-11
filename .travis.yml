@@ -10,8 +10,9 @@ env:
 before_install:
 - openssl aes-256-cbc -K $encrypted_87d951632a63_key -iv $encrypted_87d951632a63_iv
   -in .travis/rudy-site-deploy.enc -out rudy-site-deploy -d
-- git config user.email "$GH_USER_EMAIL"
-- git config user.name "$GH_USER_NAME"
+- git config --global user.email "$GH_USER_EMAIL"
+- git config --global user.name "$GH_USER_NAME"
+- git config --global user.name
 - echo "$GH_USER_NAME"
 script: yarn test
 after_script: yarn build
