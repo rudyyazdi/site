@@ -6,7 +6,7 @@ GIT="git --git-dir=rudyyazdi.github.io/.git"
 rm -rf ./rudyyazdi.github.io/**
 
 # prepare build files
-webpack -p
+yarn run webpack -p
 
 # exit is there is no change
 if [[ -z $($GIT status -s) ]]
