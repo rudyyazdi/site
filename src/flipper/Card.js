@@ -8,9 +8,6 @@ import { cardFlip } from './actions';
 const _Card = ({ isFlipped, isGuessed, id, pairId, onClick }) => {
   const isVisible = isFlipped || isGuessed;
   const outerStyle = {
-    width: 100,
-    height: 100,
-    border: '1px solid',
     cursor: 'pointer',
     backgroundImage: `url(https://api.adorable.io/avatars/100/rw${pairId}.png)`
   };
