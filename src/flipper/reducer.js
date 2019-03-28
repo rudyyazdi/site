@@ -8,7 +8,7 @@ const _createNewCards = (totalCards) => {
   const pairIds = shuffle(flatMap(arrayFactory(Math.floor(totalCards / 2)), (i) => [i, i]));
   return arrayFactory(totalCards).map((id) => ({
     id,
-    pairId: pairIds[id],
+    pairId: isNaN(pairIds[id]) ? -1 : pairIds[id],
     isFlipped: false,
     isGuessed: false
   }));

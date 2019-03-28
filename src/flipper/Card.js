@@ -9,7 +9,8 @@ const _Card = ({ isFlipped, isGuessed, id, pairId, onClick }) => {
   const isVisible = isFlipped || isGuessed;
   const outerStyle = {
     cursor: 'pointer',
-    backgroundImage: `url(https://api.adorable.io/avatars/100/rw${pairId}.png)`
+    backgroundImage: `url(https://api.adorable.io/avatars/100/rw${pairId}.png)`,
+    backgroundSize: 'cover'
   };
   const innerStyle = {
     width: '100%',
@@ -17,8 +18,18 @@ const _Card = ({ isFlipped, isGuessed, id, pairId, onClick }) => {
     backgroundColor: isVisible ? 'transparent' : 'black'
   };
 
+  const onClickHandler = () => {
+    onClick(id);
+  };
+
+  // if the number of cells are odd we need to skip one cell.
+  if (pairId === -1) {
+    return (
+      <div />
+    );
+  }
   return (
-    <div style={outerStyle} onClick={() => onClick(id)}>
+    <div style={outerStyle} onClick={onClickHandler}>
       <div style={innerStyle} />
     </div>
   );
