@@ -2,10 +2,10 @@ import shuffle from 'lodash/shuffle';
 import flatMap from 'lodash/flatMap';
 
 import arrayFactory from 'util/array-factory';
-import { FLIPPER_SHUFFLE, CARD_FLIP } from './actions';
+import { FLIPPER_SHUFFLE, CARD_FLIP, FLIPPER_INIT } from './actions';
 
-const _cardsInitialState = (totalCards) => {
-  const pairIds = shuffle(flatMap(arrayFactory(totalCards / 2), (i) => [i, i]));
+const _createNewCards = (totalCards) => {
+  const pairIds = shuffle(flatMap(arrayFactory(Math.floor(totalCards / 2)), (i) => [i, i]));
   return arrayFactory(totalCards).map((id) => ({
     id,
     pairId: pairIds[id],
@@ -34,23 +34,30 @@ const _flippedCards = (cards, id) =>
   cards.map(_markGuessed(cards)).map(_flippedLimit(cards)).map(_markFlipped(id));
 
 const initialState = {
-  totalCards: 36,
-  cards: _cardsInitialState(36)
+  totalCards: 0,
+  cards: []
 };
 
 // flipper reducer:
 
 export default (state = initialState, action) => {
+  const { totalCards } = action;
   switch (action.type) {
     case FLIPPER_SHUFFLE:
       return {
         ...state,
-        cards: _cardsInitialState(state.totalCards)
+        cards: _createNewCards(state.totalCards)
       };
     case CARD_FLIP:
       return {
         ...state,
         cards: _flippedCards(state.cards, action.id)
+      };
+    case FLIPPER_INIT:
+      return {
+        ...state,
+        totalCards,
+        cards: _createNewCards(totalCards)
       };
     default:
       return state;

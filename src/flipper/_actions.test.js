@@ -4,7 +4,7 @@ import {
   FLIPPER_INIT,
   CARD_FLIP,
   flipperShuffle,
-  flipperSInit,
+  flippersInit,
   cardFlip
 } from './actions';
 
@@ -15,9 +15,9 @@ describe('actions', () => {
     });
   });
 
-  describe('flipperSInit', () => {
+  describe('flippersInit', () => {
     it('dispatches the correct action', () => {
-      expect(flipperSInit().type).to.equal(FLIPPER_INIT);
+      expect(flippersInit().type).to.equal(FLIPPER_INIT);
     });
   });
 

@@ -5,7 +5,7 @@ import Console from './Console';
 
 export default () => (
   <div>
-    <Board rows={6} cols={6} />
+    <Board rows={5} cols={5} />
     <Console />
   </div>
 );

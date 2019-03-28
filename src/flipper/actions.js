@@ -9,7 +9,7 @@ export const CARD_FLIP       = 'CARD::FLIP';
 export const flipperShuffle = () => ({
   type: FLIPPER_SHUFFLE
 });
-export const flipperSInit = (totalCards) => ({
+export const flippersInit = (totalCards) => ({
   type: FLIPPER_INIT,
   totalCards
 });
